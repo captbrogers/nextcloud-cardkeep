@@ -1,0 +1,34 @@
+# SPDX-FileCopyrightText: Brian Rogers <captbrogers@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+### Project Specific
+# Files
+*.iml
+/.php_cs.cache
+js/*hot-update.*
+
+# Directories
+/build
+/node_modules
+/vendor
+
+### Editor Specific
+# Files
+/*.sublime-project
+/*.sublime-workspace
+
+# Directories
+/.fleet
+/.idea
+/.vscode
+
+### System Specific
+# Files
+.*.sw?
+._*
+.DS_Store
+.DS_Store?
+Thumbs.db
+
+# Directories
+__MACOSX

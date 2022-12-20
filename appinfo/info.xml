@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <!--
+    SPDX-FileCopyrightText: Brian Rogers <captbrogers@gmail.com>
+    SPDX-License-Identifier: CC0-1.0
+    -->
+    <id>cardkeep</id>
+    <name>Card Keep</name>
+    <summary>Yet another note taking app for Nextcloud.</summary>
+    <description><![CDATA[Another note taking app to attempt to replace Carnet.]]></description>
+    <version>0.0.1</version>
+    <licence>agpl</licence>
+    <author mail="captbrogers@gmail.com" homepage="https://github.com/captbrogers">Brian Rogers</author>
+    <namespace>CardKeep</namespace>
+    <category>office</category>
+    <category>organization</category>
+    <category>tools</category>
+    <bugs>https://github.com/captbrogers/nextcloud-cardkeep/issues</bugs>
+    <dependencies>
+        <nextcloud min-version="25" max-version="25"/>
+    </dependencies>
+    <navigations>
+        <navigation>
+            <name>Card Keep</name>
+            <route>cardkeep.page.index</route>
+        </navigation>
+    </navigations>
+</info>
