@@ -24,14 +24,8 @@
     "@nextcloud/dialogs": "^3.1.4",
     "@nextcloud/router": "^2.0.0",
     "@nextcloud/vue": "^5.4.0",
+    "debounce": "^1.2.1",
     "vue": "^2.7.0"
-  },
-  "browserslist": [
-    "extends @nextcloud/browserslist-config"
-  ],
-  "engines": {
-    "node": "^16.0.0",
-    "npm": "^7.0.0 || ^8.0.0"
   },
   "devDependencies": {
     "@nextcloud/babel-config": "^1.0.0",
@@ -39,5 +33,12 @@
     "@nextcloud/eslint-config": "^8.0.0",
     "@nextcloud/stylelint-config": "^2.1.2",
     "@nextcloud/webpack-vue-config": "^5.2.1"
+  },
+  "browserslist": [
+    "extends @nextcloud/browserslist-config"
+  ],
+  "engines": {
+    "node": "^16.0.0 || ^18.0.0",
+    "npm": "^7.0.0 || ^8.0.0"
   }
 }
