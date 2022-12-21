@@ -6,19 +6,19 @@ declare(strict_types=1);
 namespace OCA\CardKeep\Controller;
 
 use Closure;
-
+use OCA\CardKeep\Service\NoteNotFound;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\DataResponse;
 
-use OCA\CardKeep\Service\NoteNotFound;
-
-trait Errors {
-	protected function handleNotFound(Closure $callback): DataResponse {
-		try {
-			return new DataResponse($callback());
-		} catch (NoteNotFound $e) {
-			$message = ['message' => $e->getMessage()];
-			return new DataResponse($message, Http::STATUS_NOT_FOUND);
-		}
-	}
+trait Errors
+{
+    protected function handleNotFound(Closure $callback): DataResponse
+    {
+        try {
+            return new DataResponse($callback());
+        } catch (NoteNotFound $e) {
+            $message = ['message' => $e->getMessage()];
+            return new DataResponse($message, Http::STATUS_NOT_FOUND);
+        }
+    }
 }

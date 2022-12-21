@@ -19585,7 +19585,7 @@ var render = function render() {
           return _vm.cancelNewNote(note);
         }
       }
-    }, [_vm._v("\n\t\t\t\t\t\t\t" + _vm._s(_vm.t("cardkeep", "Cancel note creation")) + "\n\t\t\t\t\t\t")]) : _c("ActionButton", {
+    }, [_vm._v(_vm._s(_vm.t("cardkeep", "Cancel note creation")))]) : _c("ActionButton", {
       attrs: {
         icon: "icon-delete"
       },
@@ -19594,8 +19594,236 @@ var render = function render() {
           return _vm.deleteNote(note);
         }
       }
-    }, [_vm._v("\n\t\t\t\t\t\t\t" + _vm._s(_vm.t("cardkeep", "Delete note")) + "\n\t\t\t\t\t\t")])], 1)], 2);
-  }), 1)], 1), _vm._v(" "), _c("AppContent", [_vm.currentNote ? _c("div", [_c("input", {
+    }, [_vm._v(_vm._s(_vm.t("cardkeep", "Delete note")))])], 1)], 2);
+  }), 1)], 1), _vm._v(" "), _c("AppContent", [_c("div", {
+    staticClass: "appContent_container"
+  }, [_c("div", {
+    staticClass: "topNav_container"
+  }, [_c("div", {
+    staticClass: "search-form_container"
+  }, [_c("form", {
+    staticClass: "search-form",
+    attrs: {
+      "accept-charset": "utf-8"
+    }
+  }, [_c("input", {
+    staticClass: "cardkeep-search-input",
+    attrs: {
+      type: "search",
+      id: "cardkeep-search",
+      name: "cardkeep-search",
+      placeholder: _vm.t("cardkeep", "Search your notes")
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "cards_container"
+  }, _vm._l(_vm.notes, function (note) {
+    return _c("div", {
+      key: note.id,
+      staticClass: "note_card"
+    }, [_c("div", {
+      staticClass: "card_header"
+    }, [_vm._v(_vm._s(note.title))]), _vm._v(" "), _c("div", {
+      staticClass: "card_body"
+    }, [_vm._v(_vm._s(note.content))]), _vm._v(" "), _c("div", {
+      staticClass: "card_footer"
+    }, [_c("button", {
+      staticClass: "ck-icon-button button-vue",
+      attrs: {
+        type: "button"
+      }
+    }, [_c("svg", {
+      attrs: {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "18",
+        height: "18",
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        "stroke-width": "2",
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        preserveAspectRatio: "xMidYMid meet"
+      }
+    }, [_c("title", [_vm._v(_vm._s(_vm.t("cardkeep", "Add reminder")))]), _vm._v(" "), _c("path", {
+      attrs: {
+        d: "M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"
+      }
+    }), _vm._v(" "), _c("path", {
+      attrs: {
+        d: "M13.73 21a2 2 0 0 1-3.46 0"
+      }
+    }), _vm._v(" "), _c("path", {
+      attrs: {
+        d: "M2 8c0-2.2.7-4.3 2-6"
+      }
+    }), _vm._v(" "), _c("path", {
+      attrs: {
+        d: "M22 8a10 10 0 0 0-2-6"
+      }
+    })])]), _vm._v(" "), _c("button", {
+      staticClass: "ck-icon-button button-vue",
+      attrs: {
+        type: "button"
+      }
+    }, [_c("svg", {
+      attrs: {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "18",
+        height: "18",
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        "stroke-width": "2",
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        preserveAspectRatio: "xMidYMid meet"
+      }
+    }, [_c("title", [_vm._v(_vm._s(_vm.t("cardkeep", "Color options")))]), _vm._v(" "), _c("circle", {
+      attrs: {
+        cx: "13.5",
+        cy: "6.5",
+        r: ".5"
+      }
+    }), _vm._v(" "), _c("circle", {
+      attrs: {
+        cx: "17.5",
+        cy: "10.5",
+        r: ".5"
+      }
+    }), _vm._v(" "), _c("circle", {
+      attrs: {
+        cx: "8.5",
+        cy: "7.5",
+        r: ".5"
+      }
+    }), _vm._v(" "), _c("circle", {
+      attrs: {
+        cx: "6.5",
+        cy: "12.5",
+        r: ".5"
+      }
+    }), _vm._v(" "), _c("path", {
+      attrs: {
+        d: "M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"
+      }
+    })])]), _vm._v(" "), _c("button", {
+      staticClass: "ck-icon-button button-vue",
+      attrs: {
+        type: "button"
+      }
+    }, [_c("svg", {
+      attrs: {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "18",
+        height: "18",
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        "stroke-width": "2",
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        preserveAspectRatio: "xMidYMid meet"
+      }
+    }, [_c("title", [_vm._v(_vm._s(_vm.t("cardkeep", "Add image")))]), _vm._v(" "), _c("path", {
+      attrs: {
+        d: "M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"
+      }
+    }), _vm._v(" "), _c("line", {
+      attrs: {
+        x1: "16",
+        y1: "5",
+        x2: "22",
+        y2: "5"
+      }
+    }), _vm._v(" "), _c("line", {
+      attrs: {
+        x1: "19",
+        y1: "2",
+        x2: "19",
+        y2: "8"
+      }
+    }), _vm._v(" "), _c("circle", {
+      attrs: {
+        cx: "9",
+        cy: "9",
+        r: "2"
+      }
+    }), _vm._v(" "), _c("path", {
+      attrs: {
+        d: "m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"
+      }
+    })])]), _vm._v(" "), _c("button", {
+      staticClass: "ck-icon-button button-vue",
+      attrs: {
+        type: "button"
+      }
+    }, [_c("svg", {
+      attrs: {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "18",
+        height: "18",
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        "stroke-width": "2",
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        preserveAspectRatio: "xMidYMid meet"
+      }
+    }, [_c("title", [_vm._v(_vm._s(_vm.t("cardkeep", "Archive note")))]), _vm._v(" "), _c("rect", {
+      attrs: {
+        x: "2",
+        y: "4",
+        width: "20",
+        height: "5",
+        rx: "2"
+      }
+    }), _vm._v(" "), _c("path", {
+      attrs: {
+        d: "M4 9v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9"
+      }
+    }), _vm._v(" "), _c("path", {
+      attrs: {
+        d: "M10 13h4"
+      }
+    })])]), _vm._v(" "), _c("button", {
+      staticClass: "ck-icon-button button-vue",
+      attrs: {
+        type: "button"
+      }
+    }, [_c("svg", {
+      attrs: {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "18",
+        height: "18",
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        "stroke-width": "2",
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        preserveAspectRatio: "xMidYMid meet"
+      }
+    }, [_c("title", [_vm._v(_vm._s(_vm.t("cardkeep", "More options")))]), _vm._v(" "), _c("circle", {
+      attrs: {
+        cx: "12",
+        cy: "12",
+        r: "1"
+      }
+    }), _vm._v(" "), _c("circle", {
+      attrs: {
+        cx: "12",
+        cy: "5",
+        r: "1"
+      }
+    }), _vm._v(" "), _c("circle", {
+      attrs: {
+        cx: "12",
+        cy: "19",
+        r: "1"
+      }
+    })])])])]);
+  }), 0)]), _vm._v(" "), _vm.currentNote ? _c("div", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -25765,7 +25993,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#app-content > div[data-v-7ba5bd90] {\n\twidth: 100%;\n\theight: 100%;\n\tpadding: 20px;\n\tdisplay: flex;\n\tflex-direction: column;\n\tflex-grow: 1;\n}\ninput[type='text'][data-v-7ba5bd90] {\n\twidth: 100%;\n}\ntextarea[data-v-7ba5bd90] {\n\tflex-grow: 1;\n\twidth: 100%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#app-content > div[data-v-7ba5bd90] {\n    width: 100%;\n    height: 100%;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n    flex-grow: 1;\n}\ninput[type='text'][data-v-7ba5bd90] {\n    width: 100%;\n}\ntextarea[data-v-7ba5bd90] {\n    flex-grow: 1;\n    width: 100%;\n}\n.appContent_container[data-v-7ba5bd90] {\n    position: relative;\n}\n@media only screen and (min-width: 641px) and (max-width: 1366px) {\n.appContent_container[data-v-7ba5bd90] {\n        max-width: 1050px;\n}\n.cardkeep-search-input[data-v-7ba5bd90] {\n        width: 360px;\n}\n}\n@media only screen and (min-width: 1367px) and (max-width: 1920px) {\n.appContent_container[data-v-7ba5bd90] {\n        /*max-width: 1604px;*/\n}\n.cardkeep-search-input[data-v-7ba5bd90] {\n        width: 500px;\n}\n}\n.topNav_container[data-v-7ba5bd90] {\n    border-top-right-radius: var(--body-container-radius);\n    height: 65px;\n    margin-left: 50px;\n    margin-right: 50px;\n    max-width: 1554px;\n    width: 100%;\n}\n.search-form_container[data-v-7ba5bd90] {\n    display: flex;\n    align-items: center;\n    height: 65px;\n}\n.search-form[data-v-7ba5bd90] {}\n.cards_container[data-v-7ba5bd90] {\n    display: grid;\n    grid-template-rows: max-content;\n    gap: 2rem;\n    padding: 25px 50px;\n}\n.note_card[data-v-7ba5bd90] {\n    display: flex;\n    flex-direction: column;\n    background-color: hsl(0, 0%, 100%);\n    border-radius: 8px;\n    border: 1px solid hsl(0, 0%, 87.8%);\n    transition-duration: 0.218s;\n    transition-property: opacity,transform;\n    max-width: 250px;\n}\n.note_card[data-v-7ba5bd90]:hover {\n    box-shadow: 0 1px 2px 0 hsla(206, 5.5%, 24.9%, 0.3), 0 1px 3px 1px hsla(206, 5.5%, 24.9%, 0.15);\n}\n.note_card .card_header[data-v-7ba5bd90] {\n    border-bottom: 1px solid hsl(0, 0%, 87.8%);\n    border-top-left-radius: 8px;\n    border-top-right-radius: 8px;\n    padding: 0.5rem 1rem;\n}\n.note_card .card_body[data-v-7ba5bd90] {\n    padding: 0.5rem 1rem;\n}\n.note_card .card_footer[data-v-7ba5bd90] {\n    border-bottom-left-radius: 8px;\n    border-bottom-right-radius: 8px;\n    border-top: 1px solid hsl(0, 0%, 87.8%);\n    padding: 0.5rem 1rem;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n}\n.note_card .card_footer .ck-icon-button[data-v-7ba5bd90] {\n    transition-duration: 0.218s;\n    transition-property: opacity,transform;\n    opacity: 0;\n    border: none;\n    background: transparent;\n    padding: 5px 3px;\n    cursor: pointer;\n}\n.note_card:hover .card_footer .ck-icon-button[data-v-7ba5bd90] {\n    opacity: 1;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -64348,4 +64576,4 @@ vue__WEBPACK_IMPORTED_MODULE_2__["default"].mixin({
 
 /******/ })()
 ;
-//# sourceMappingURL=cardkeep-main.js.map?v=47c53dbfb80e8b9b15e9
+//# sourceMappingURL=cardkeep-main.js.map?v=1ead3c25308df5bf7875

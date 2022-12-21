@@ -6,78 +6,94 @@ declare(strict_types=1);
 namespace OCA\CardKeep\Service;
 
 use Exception;
-
+use OCA\CardKeep\Db\Note;
+use OCA\CardKeep\Db\NoteMapper;
 use OCP\AppFramework\Db\DoesNotExistException;
 use OCP\AppFramework\Db\MultipleObjectsReturnedException;
 
-use OCA\CardKeep\Db\Note;
-use OCA\CardKeep\Db\NoteMapper;
+class NoteService
+{
+    private NoteMapper $mapper;
 
-class NoteService {
-	private NoteMapper $mapper;
+    public function __construct(NoteMapper $mapper)
+    {
+        $this->mapper = $mapper;
+    }
 
-	public function __construct(NoteMapper $mapper) {
-		$this->mapper = $mapper;
-	}
+    /**
+     * @return list<Note>
+     */
+    public function findAll(string $userId): array
+    {
+        return $this->mapper->findAll($userId);
+    }
 
-	/**
-	 * @return list<Note>
-	 */
-	public function findAll(string $userId): array {
-		return $this->mapper->findAll($userId);
-	}
+    /**
+     * @return never
+     */
+    private function handleException(Exception $e)
+    {
+        if ($e instanceof DoesNotExistException ||
+            $e instanceof MultipleObjectsReturnedException) {
+            throw new NoteNotFound($e->getMessage());
+        } else {
+            throw $e;
+        }
+    }
 
-	/**
-	 * @return never
-	 */
-	private function handleException(Exception $e) {
-		if ($e instanceof DoesNotExistException ||
-			$e instanceof MultipleObjectsReturnedException) {
-			throw new NoteNotFound($e->getMessage());
-		} else {
-			throw $e;
-		}
-	}
+    public function find(int $id, string $userId): Note
+    {
+        try {
+            return $this->mapper->find($id, $userId);
 
-	public function find(int $id, string $userId): Note {
-		try {
-			return $this->mapper->find($id, $userId);
+            // in order to be able to plug in different storage backends like files
+        // for instance it is a good idea to turn storage related exceptions
+        // into service related exceptions so controllers and service users
+        // have to deal with only one type of exception
+        } catch (Exception $e) {
+            $this->handleException($e);
+        }
+    }
 
-			// in order to be able to plug in different storage backends like files
-		// for instance it is a good idea to turn storage related exceptions
-		// into service related exceptions so controllers and service users
-		// have to deal with only one type of exception
-		} catch (Exception $e) {
-			$this->handleException($e);
-		}
-	}
+    public function create(string $title, string $content, string $userId): Note
+    {
+        $note = new Note();
+        $note->setUserId($userId);
+        $note->setTitle($title);
+        $note->setContent($content);
+        $createdAt = gmdate('Y-m-d H:i:s');
+        if (!empty(ini_get('date.timezone'))) {
+            $createdAt = date('Y-m-d H:i:s');
+        }
+        $note->setCreatedAt($createdAt);
+        return $this->mapper->insert($note);
+    }
 
-	public function create(string $title, string $content, string $userId): Note {
-		$note = new Note();
-		$note->setTitle($title);
-		$note->setContent($content);
-		$note->setUserId($userId);
-		return $this->mapper->insert($note);
-	}
+    public function update(int $id, string $title, string $content, string $userId): Note
+    {
+        try {
+            $note = $this->mapper->find($id, $userId);
+            $note->setTitle($title);
+            $note->setContent($content);
+            $updatedAt = gmdate('Y-m-d H:i:s');
+            if (!empty(ini_get('date.timezone'))) {
+                $updatedAt = date('Y-m-d H:i:s');
+            }
+            $note->setUpdatedAt($updatedAt);
+            return $this->mapper->update($note);
+        } catch (Exception $e) {
+            $this->handleException($e);
+        }
+    }
 
-	public function update(int $id, string $title, string $content, string $userId): Note {
-		try {
-			$note = $this->mapper->find($id, $userId);
-			$note->setTitle($title);
-			$note->setContent($content);
-			return $this->mapper->update($note);
-		} catch (Exception $e) {
-			$this->handleException($e);
-		}
-	}
-
-	public function delete(int $id, string $userId): Note {
-		try {
-			$note = $this->mapper->find($id, $userId);
-			$this->mapper->delete($note);
-			return $note;
-		} catch (Exception $e) {
-			$this->handleException($e);
-		}
-	}
+    public function delete(int $id, string $userId): Note
+    {
+        try {
+            $note = $this->mapper->find($id, $userId);
+            $this->mapper->delete($note);
+            return $note;
+        } catch (Exception $e) {
+            $this->handleException($e);
+        }
+    }
 }

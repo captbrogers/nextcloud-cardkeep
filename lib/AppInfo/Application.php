@@ -7,10 +7,12 @@ namespace OCA\CardKeep\AppInfo;
 
 use OCP\AppFramework\App;
 
-class Application extends App {
-	public const APP_ID = 'cardkeep';
+class Application extends App
+{
+    public const APP_ID = 'cardkeep';
 
-	public function __construct() {
-		parent::__construct(self::APP_ID);
-	}
+    public function __construct()
+    {
+        parent::__construct(self::APP_ID);
+    }
 }

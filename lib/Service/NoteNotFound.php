@@ -5,5 +5,7 @@ declare(strict_types=1);
 
 namespace OCA\CardKeep\Service;
 
-class NoteNotFound extends \Exception {
+class NoteNotFound extends \Exception
+{
+    //
 }
